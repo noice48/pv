@@ -133,11 +133,18 @@ will-change: transform; /* Improves performance */
     font-size: 10px;
 }
 
+
 .instagram-id {
     font-size: 12px;
-    color: rgb(255, 255, 255);
+    color: white;
     font-weight: 500;
     margin: 0 10px;
+    text-decoration: none; /* Removes underline */
+    transition: color 0.4s ease-in-out;
+}
+.instagram-id:hover {
+    text-decoration: none; 
+    color: #d93021;
 }
 
 /* Navigation */
@@ -169,6 +176,96 @@ nav {
 .nav-links a:nth-child(3) {
     color: #d93021;
 }
+.nav-links:hover{
+    color: #d93021;
+}
+
+.nav-links a:hover {
+    color: #d93021 !important; /* Force red color on hover */
+}
+
+/* ===== BUTTON CORE STYLES ===== */
+.hire-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d93021;
+    color: white;
+    border: none;
+    padding: 9px 25px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-right: 10px;
+    text-decoration: none;
+    
+    /* Perfectly tuned transitions */
+    transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    transform-origin: center;
+    will-change: transform, background-color, box-shadow;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    backface-visibility: hidden;
+  }
+  
+  /* ===== HOVER ANIMATION ===== */
+  .hire-button:hover {
+    background-color: #1a1a1a;
+    transform: scale(1.05) translateY(-1.5px);
+    box-shadow: 
+      0 3px 6px rgba(0, 0, 0, 0.16),
+      0 3px 6px rgba(0, 0, 0, 0.23);
+    
+    /* Slight delay on transform for layered effect */
+    transition: 
+      background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s,
+      box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  /* ===== ACTIVE STATE ===== */
+  .hire-button:active {
+    transform: scale(0.98) translateY(1px);
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.12),
+      0 1px 2px rgba(0, 0, 0, 0.24);
+    transition-duration: 0.15s;
+  }
+  
+  /* ===== RIPPLE EFFECT ===== */
+  .hire-button::before {
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle closest-side, rgba(255,255,255,0.2), transparent);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: -1;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.1s linear;
+  }
+  
+  .hire-button:hover::before {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+  }
+  
+  /* ===== DARK MODE ADJUSTMENT ===== */
+  body.dark-mode .hire-button:hover {
+    background-color: #333;
+    box-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.3),
+      0 6px 12px rgba(0, 0, 0, 0.22);
+  }
+  
 
 /* Dark Mode Toggle */
 .dark-mode-toggle {
@@ -238,6 +335,9 @@ nav {
     font-size: 13px;
     color: #444;
 }
+.see-work:hover{
+    color: #d93021;
+}
 
 .editing-icons {
     display: flex;
@@ -303,6 +403,9 @@ body.dark-mode .nav-links a {
 body.dark-mode .nav-links a:nth-child(3) {
     color: #d93021;
 }
+body.dark-mode .nav-links a:hover {
+    color: #d93021 !important; /* Same red in dark mode */
+}
 body.dark-mode .profile-title {
     color: #ccc;
 }
@@ -344,6 +447,10 @@ body:not(.dark-mode) .logo-text {
 body.dark-mode .sub-logo-bar {
     background-color: #333;
 }
+body.dark-mode .see-work:hover{
+    color: #d93021;
+}
+
 
 /* Media Queries */
 @media (max-width: 768px) {
@@ -507,4 +614,32 @@ body.dark-mode .logo-text::after {
 .logo-text:hover {
     animation: gentleBounce 2s ease;
     transform: none; /* Remove the static scale if using animation */
+}
+/* 2. CSS for Dark/Light Mode*/ 
+
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+}
+
+
+
+.theme-icon {
+    margin-left: 10px;
+    width: 26px; /* Adjust size as needed */
+    height: 26px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+.theme-icon:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
 }

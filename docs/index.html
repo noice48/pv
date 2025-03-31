@@ -1,6 +1,11 @@
+
+<!-- last edited 11:45 3/31/2024 -->
+<!-- All The code were written by Noice -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
@@ -20,22 +25,36 @@
                             <div class="instagram-logo">
                                 <i class="fab fa-instagram"></i>
                             </div>
-                            <span class="instagram-id">@editwithnoice</span>
+                            <a href="https://www.instagram.com/editwithnoice/" target="_blank" class="instagram-id">@editwithnoice</a>
+                                <div>
+                   
+                        
                         </div>
-                        <img src="icon/blackbg.png" alt="Brand Logo" class="brand-logo">
+                    </div>
+                    <div class="theme-toggle">
+                        <img 
+                            src="icon/light-mode.png" 
+                            alt="Dark/Light Mode Toggle" 
+                            class="theme-icon" 
+                            id="theme-toggle"
+                        >
+                    </div>
                     </div>
                 </div>
-           
-                <div class="nav-container">
-                    <div class="nav-links">
-                        <a href="#">Work</a>
-                        <a href="#">About</a>
-                        <a href="#">Contact</a>
-                    </div>
-                    <div class="dark-mode-toggle">
-                        <div class="toggle-circle"></div>
-                    </div>
-                </div>
+                    
+                    <!-- This nav-container was missing its closing tag -->
+                    <div class="nav-container">
+                        <div class="nav-links">
+                            <a href="#">Project</a>
+                            <a href="#">About</a>
+                            <a href="#">Contact</a>
+                    
+                        <div class="dark-mode-toggle">
+                            <div class="toggle-circle"></div>
+                        </div>
+                
+                </div>  <!-- Closing logo-container -->
+                
             </nav>
             
             <div class="profile-section">
@@ -45,7 +64,7 @@
                 
                 <div class="profile-actions">
                     <button class="hire-button">Hire me</button>
-                    <span class="see-work">see work</span>
+                <span class="see-work">see work</span>
                 </div>
                 
                 <div class="editing-icons">
@@ -106,7 +125,26 @@
             document.body.classList.toggle("dark-mode", isDarkMode);
             toggleCircle.style.transform = isDarkMode ? 'translateX(24px)' : 'translateX(0)';
         });
+
+        const themeToggle = document.getElementById('theme-toggle');
+let darkMode = false;
+
+// Check for saved user preference (optional)
+if (localStorage.getItem('darkMode') === 'true') {
+    setDarkMode(true);
+}
+
+// Toggle on click
+themeToggle.addEventListener('click', () => {
+    darkMode = !darkMode;
+    setDarkMode(darkMode);
+    localStorage.setItem('darkMode', darkMode);
+});
+
+function setDarkMode(enabled) {
+    document.documentElement.setAttribute('data-theme', enabled ? 'dark' : 'light');
+    themeToggle.src = enabled ? 'icon/light-mode.png' : 'icon/dark-mode.png';
+}
     </script>
 </body>
 </html>
-<!-- adjustment --> =
