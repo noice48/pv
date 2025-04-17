@@ -301,14 +301,13 @@ nav {
     margin-bottom: 5px;
 }
 
-.profile-title {
-    font-size: 18px;
-    color: #444;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
+.projects-title {
+    font-family: 'Nothingfont', sans-serif;
+    font-size: 2.5rem; /* Slightly larger */
+    letter-spacing: 1px; /* Better spacing */
+    color: #d93021; /* Your accent color */
+    margin-bottom: 30px;
+    text-transform: uppercase; /* Optional: makes it all caps */
 }
 
 .profile-title::after {
@@ -452,6 +451,14 @@ body.dark-mode .see-work:hover{
 }
 
 
+
+
+
+
+
+
+
+
 /* Media Queries */
 @media (max-width: 768px) {
     .nav-links {
@@ -475,12 +482,14 @@ body.dark-mode .see-work:hover{
     .logo-bar {
         height: 45px;
     }
-    
     .sub-logo-bar {
-        height: 36px;
-        padding: 0 12px;
+        display: flex !important; /* Force display */
+        height: 30px;
+        padding: 0 6px;
+        margin-left: 8px;
+        background-color: no; /* Maintain style */
+        border-radius: 300px; /* Maintain style */
     }
-    
     .brand-logo {
         width: 26px;
         height: 26px;
@@ -507,9 +516,7 @@ body.dark-mode .see-work:hover{
         padding-left: 10px; /* Reduce spacing */
     }
     
-    .sub-logo-bar {
-        margin-left: 10px; /* Reduce spacing */
-}
+    
 
     .logo-text {
         transition: none !important;
@@ -520,7 +527,255 @@ body.dark-mode .see-work:hover{
     .logo-text::after {
         transition: none !important;
     }
+    /* Hide Instagram ID in mobile view */
+ 
+    sub-logo-bar {
+        display: flex;
+        height: 36px;
+        padding: 0 10px;
+        margin-left: 10px;
+    }
+    
+    /* Hide only the Instagram ID text */
+    .instagram-id {
+        display: none;
+    }
+    
+    /* Adjust the Instagram logo size and position */
+    .instagram-logo {
+        background-color: transparent !important;
+        border: none !important;
+        width: 18px; /* Make width and height equal */
+        height: 22px;
+        border-radius: 100%; /* Ensures perfect circle */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0; /* Remove any padding that might distort shape */
+        margin: px; /* Add small margin for spacing */
+    }
+
+    .instagram-logo i {
+        color: white;
+        font-size: 18px;
+        display: block; /* Ensures proper centering */
+        width: 100%; /* Fill container */
+        text-align: center; /* Center icon */
+    }
+
+    /* Adjust logo bar to accommodate the Instagram logo */
+    .logo-bar {
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+    
+    /* Ensure proper spacing between elements */
+    .logo-container {
+        justify-content: space-between;
+    }
+    
+    /* Adjust theme toggle position */
+    .theme-toggle {
+        margin-left: 10px;
+    }
+ 
+   
+    /* Adjust logo bar for mobile */
+    .logo-bar {
+        width: 100%; /* Take full width */
+        padding: 0 15px; /* Adjust padding */
+        justify-content: space-between; /* Better spacing */
+    }
+    
+    /* Keep showing the theme toggle in mobile */
+    .theme-toggle {
+        display: flex; /* Ensure it's visible */
+        align-items: center;
+    }
+    
+    /* Adjust the theme icon size for mobile */
+    .theme-icon {
+        width: 22px;
+        height: 22px;
+    }
+    .instagram-logo {
+        position: relative;
+    }
+    .instagram-logo:hover::after {
+        content: '@editwithnoice';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.8);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    .sub-logo-bar {
+        display: none;
+    }
+    .logo-bar {
+        justify-content: flex-start; /* Align logo to start */
+    }
+       /* Hide regular nav links */
+       .nav-links {
+        display: none;
+    }
+    
+    /* Make logo bar shorter */
+    .logo-bar {
+        height: 40px;
+        padding: 0 15px;
+        width: auto; /* Let it take only needed space */
+        flex-grow: 1; /* Allow it to grow */
+    }
+    
+    /* Hide Instagram ID */
+    .instagram-id {
+        display: none;
+    }
+    
+    /* Adjust logo text */
+    .logo-text {
+        font-size: 20px;
+        margin-left: 0;
+    }
+  
+   
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    
+    /* Logo container adjustments */
+    .logo-container {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+    /* Logo bar adjustments */
+    .logo-bar {
+        height: 40px;
+        padding: 0 15px;
+        width: auto;
+        margin-right: auto;
+    }
+    
+    /* Hide unnecessary elements */
+    .sub-logo-bar,
+    .instagram-id,
+    .nav-container {
+        display: none;
+    }
+    
+    /* Hamburger Menu Styles */
+  .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 16px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 10;
+        margin-left: 15px;
+    }
+    
+    .hamburger-line {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #1a1a1a;
+        transition: all 0.3s ease;
+    }
+    
+    body.dark-mode .hamburger-line {
+        background-color: white;
+    }
+    
+    /* Active state for hamburger */
+    .hamburger-menu.active .hamburger-line:first-child {
+        transform: translateY(7px) rotate(45deg);
+    }
+    
+    .hamburger-menu.active .hamburger-line:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    
+    /* Mobile Menu when open */
+    .mobile-nav-open .nav-links {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 90px; /* Adjust based on your header height */
+        right: 20px;
+        background: #f2f2f2;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 100;
+        gap: 15px;
+    }
+    body.dark-mode .mobile-nav-open .nav-links {
+        background: #1e1e1e;
+    }
+    
+    .mobile-nav-open .nav-links a {
+        padding: 8px 15px;
+        font-size: 18px;
+        border-bottom: 1px solid #eee;
+    }
+    body.dark-mode .mobile-nav-open .nav-links a {
+        color: #f2f2f2;
+    }
+    /* Overlay effect */
+    .mobile-nav-open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 8;
+    }
+    /* Adjust logo container */
+    .logo-container {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+    }
+    
+    /* Make logo bar more compact */
+    .logo-bar {
+        height: 40px;
+        padding: 0 15px;
+        width: auto;
+        margin-right: auto;
+    }   
+      /* Overlay effect */
+      .mobile-nav-open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 8;
+    }
 }
+
+
+
 /* Add transition properties to elements that change color */
 body, .header-section, .logo-bar, .sub-logo-bar, 
 .nav-links a, .profile-title, .see-work, 
@@ -642,4 +897,184 @@ body.dark-mode .logo-text::after {
 .theme-icon:hover {
     opacity: 0.8;
     transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Projects Section */
+.projects-section {
+    background-color: #0a0a0a;
+    color: #f2f2f2;
+    padding: 60px 40px;
+    border-radius: 20px;
+    margin-top: 40px;
+    position: relative;
+}
+
+.projects-main-title {
+    font-family: 'Nothingfont', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #d93021;
+}
+
+.projects-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Left Side - Stats Boxes */
+.left-side {
+    width: 250px;
+}
+
+/* Right Content Area */
+.content-area {
+    flex: 1;
+    position: relative;
+}
+
+/* Shortform Section Positioning */
+.shortform-section {
+    position: static;
+    top: 0;
+    right: 0;
+    text-align: left;
+    max-width: 100%;
+}
+
+/* Category Title - Right Aligned */
+/* Category Title - Right Aligned */
+.category-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 600; /* Added missing font-weight */
+    text-align: left; /* Right aligned */
+    width: 100%;
+}
+
+/* Category Description - Left Aligned */
+.category-description {
+    text-align: right; /* Left aligned */
+    width: 100%; /* Full width */
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.8;
+    margin: 0;
+    padding-left: 20px; /* Add some left padding */
+}
+
+/* Container adjustment to separate title and description */
+.shortform-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Push content to right */
+    margin-bottom: 30px;
+}   
+
+/* Video Grid Container - Centered as a group */
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers all blocks together */
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Individual Video Blocks - Now in 16:9 landscape format */
+.video-block {
+    flex: 0 0 auto; /* Don't grow or shrink */
+    width: 300px; /* Width for 16:9 ratio */
+    height: 534px; /* Height calculation: 300/16*9 = 169 */
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Video Thumbnail - Fills entire block */
+.video-thumbnail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Video Title - Positioned at bottom */
+.video-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Hover Effects */
+.video-block:hover {
+    transform: scale(1.03);
+    transition: transform 0.2s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .video-block {
+        width: 280px;
+        height: 158px; /* 280/16*9 */
+    }
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        gap: 15px;
+    }
+    .video-block {
+        width: 240px;
+        height: 135px; /* 240/16*9 */
+    }
+    .video-title {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-grid {
+        gap: 12px;
+        padding: 15px 10px;
+    }
+    .video-block {
+        width: 200px;
+        height: 113px; /* 200/16*9 */
+    }
+    .video-title {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
 }

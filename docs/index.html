@@ -17,20 +17,19 @@
     <div class="container">
         <section class="header-section">
             <div class="content-container">
-            <nav>
-                <div class="logo-container">
-                    <div class="logo-bar">
-                        <span class="logo-text">NOICE</span>
-                        <div class="sub-logo-bar">
-                            <div class="instagram-logo">
-                                <i class="fab fa-instagram"></i>
+                <nav>
+                    <div class="logo-container">
+                        <div class="logo-bar">
+                            <span class="logo-text">NOICE</span>
+                            <div class="sub-logo-bar">
+                                <a href="https://www.instagram.com/editwithnoice/" target="_blank" class="instagram-logo">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.instagram.com/editwithnoice/" target="_blank" class="instagram-id">@editwithnoice</a>
                             </div>
-                            <a href="https://www.instagram.com/editwithnoice/" target="_blank" class="instagram-id">@editwithnoice</a>
-                                <div>
-                   
-                        
-                        </div>
-                    </div>
+                  
+                    
+                 
                     <div class="theme-toggle">
                         <img 
                             src="icon/light-mode.png" 
@@ -39,23 +38,23 @@
                             id="theme-toggle"
                         >
                     </div>
+                </div> 
+                   <!-- Hamburger menu on the right side -->
+                   <button class="hamburger-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    </button>
                     </div>
-                </div>
-                    
-                    <!-- This nav-container was missing its closing tag -->
-                    <div class="nav-container">
-                        <div class="nav-links">
-                            <a href="#">Project</a>
-                            <a href="#">About</a>
-                            <a href="#">Contact</a>
-                    
-                        <div class="dark-mode-toggle">
-                            <div class="toggle-circle"></div>
-                        </div>
-                
-                </div>  <!-- Closing logo-container -->
-                
-            </nav>
+                            <div class="nav-links">
+                                <a href="#">Project</a>
+                                <a href="#">About</a>
+                                <a href="#">Contact</a>
+                        
+                            <div class="dark-mode-toggle">
+                             
+                                <div class="toggle-circle">
+                           
+                </nav>
             
             <div class="profile-section">
             <div class="content-container">
@@ -86,9 +85,48 @@
         </section>
         
         <section class="projects-section">
-            <h2 class="projects-title">Projects</h2>
-            <!-- Project cards would go here -->
-        </section>
+        <h1 class="projects-main-title">Projects</h1>
+
+        <div class="projects-container">
+            
+        <!-- Right Content Area -->
+        <div class="content-area">
+            <!-- Shortform Section -->
+            <div class="video-category shortform-section">
+                <h3 class="category-title">Shortform / Reels</h3>
+                <p class="category-description">
+                    Clean and simple edits with<br>
+                    engaging storytelling for Tamil and English reels
+                </p>
+            </div>
+            
+       <!-- Video Grid -->
+<div class="video-grid">
+    <!-- Video Block 1 -->
+    <div class="video-block">
+        <div class="video-thumbnail" style="--aspect-ratio: 16/9;">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/pTcSJgknBp0?si=_rvYUNhFZtkepEoj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-title">Reel #1</div>
+    </div>
+    <!-- Video Block 2 -->
+    <div class="video-block">
+        <div class="video-thumbnail" style="--aspect-ratio: 16/9;">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/pTcSJgknBp0?si=_rvYUNhFZtkepEoj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-title">Reel #2</div>
+    </div>
+    <!-- Video Block 3 -->
+    <div class="video-block">
+        <div class="video-thumbnail" style="--aspect-ratio: 16/9;">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/pTcSJgknBp0?si=_rvYUNhFZtkepEoj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-title">Reel #3</div>
+    </div>
+</div>
+        </div>
+    </div>
+</section>
     </div>
 
     <script>
@@ -145,6 +183,33 @@ function setDarkMode(enabled) {
     document.documentElement.setAttribute('data-theme', enabled ? 'dark' : 'light');
     themeToggle.src = enabled ? 'icon/light-mode.png' : 'icon/dark-mode.png';
 }
+
+// Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger-menu');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent event from bubbling
+    document.body.classList.toggle('mobile-nav-open');
+    hamburger.classList.toggle('active');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-links') && !e.target.closest('.hamburger-menu')) {
+        document.body.classList.remove('mobile-nav-open');
+        hamburger.classList.remove('active');
+    }
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.body.classList.remove('mobile-nav-open');
+        hamburger.classList.remove('active');
+    });
+});
+
     </script>
 </body>
 </html>
